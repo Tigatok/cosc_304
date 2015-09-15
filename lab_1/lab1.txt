@@ -1,0 +1,67 @@
+CREATE TABLE Groceries (Item VARCHAR2(12), Price NUMBER, Aisle CHAR);
+INSERT INTO Groceries VALUES('Milk', 4.5, '3');
+CHANGE /Milk/Coffee;
+LIST;
+CHANGE /4.5/3.75
+CHANGE /'3/'6
+INSERT INTO Groceries VALUES('Bananas', 4, '3');
+INSERT INTO Groceries VALUES('Sexual Lubricant', 1337, '3');
+INSERT INTO Groceries VALUES('Child Finder 2000', 101, '1');
+INSERT INTO Groceries VALUES('Oxycotin', 100.8, '0');
+INSERT INTO Groceries VALUES('Apples', 12.009, '-1');
+SELECT Item, Price from Groceries;
+SELECT * FROM Groceries;
+SELECT Item FROM Groceries WHERE aisle='3';
+SELECT * FROM Groceries WHERE Price > 2;
+SELECT * FROM Groceries WHERE Price < 5.75 AND (Aisle = '2' OR Aisle = '3');
+SELECT Item, Price * 1.07 + .25 FROM Groceries;
+SELECT SUM(Price) as Total_Price FROM Groceries;
+SELECT MAX(Price), MIN(Price), AVG(Price), COUNT(Item) FROM Groceries;
+DESC Groceries;
+SELECT table_name FROM user_tables;
+CREATE TABLE lab1_8a (ID INT(10) NOT NULL UNSIGNED AUTO_INCREMENT, player_uuid VARCHAR(40) NOT NULL, player_name(VARCHAR 16) NOT NULL, PRIMARY KEY(player_uuid));
+INSERT INTO lab1_8a VALUES('c2c9e845-8127-4c29-bd6d-040c11bfadf2', 'Kato233');
+INSERT INTO lab1_8a VALUES('ca8ab730-50fe-4924-9e40-e4fd62f27d81', 'Bargraphics');
+INSERT INTO lab1_8a VALUES('5f37377c-46ce-4bf8-b437-7cdc85bbc98c', 'Smccabe');
+INSERT INTO lab1_8a VALUES('069a79f4-44e9-4726-a5be-fca90e38aaf5', 'Notch);
+CREATE TABLE lab1_8b (ID INT(10) NOT NULL UNSIGNED AUTO_INCREMENT, player_uuid VARCHAR(40) NOT NULL, kills INT(10) DEFAULT 0, deaths INT(10) DEFAULT 0, headshots INT(10) DEFAULT 0, PRIMARY KEY(player_uuid));
+INSERT INTO lab1_8b VALUIES('c2c9e845-8127-4c29-bd6d-040c11bfadf2');
+INSERT INTO lab1_8b VALUIES('ca8ab730-50fe-4924-9e40-e4fd62f27d81');
+INSERT INTO lab1_8b VALUIES('5f37377c-46ce-4bf8-b437-7cdc85bbc98c');
+INSERT INTO lab1_8b VALUIES('069a79f4-44e9-4726-a5be-fca90e38aaf5');
+SHOW LINES;
+SET LINES 1000;
+EXIT;
+CREATE TABLE phones(fname varchar(8), phone number);
+SELECT table_name, tablespace_name from user_tables;
+DESC user_ts_quotas;
+SELECT tablespace_name, bytes/1024/1024, max_bytes/1024/1024 from user_ts_quotas;
+CREATE TABLE phones2 (fname VARCHAR(8), phone number) TABLESPACE users2;
+CREATE TABLE phones2 (fname VARCHAR(8), phone number) TABLESPACE users;
+insert into phones values('Tom', 8604545);
+2 ('Ken', 2313434);
+ /
+Enter value for fname: Tim;
+Enter value for phone: 6768080;
+old 2: ('&fname',&phone);
+new 2: ('Tim',6768080);
+SELECT * FROM phones;
+INSERT INTO phones2
+SELECT * FROM phones
+WHERE fname LIKE 'T%';
+SELECT 'Fname = ', fname, phone*4, '4*23=', 4*23 FROM phones; 
+SELECT 1234*4321 FROM phones;
+SELECT 1234*4321 FROM dual;
+CREATE TABLE Grades (Name VARCHAR(30), Course VARCHAR(40), Grade number);
+INSERT INTO Grades VALUES('Mary Popkins', 'Database Systems', 97);
+DELETE TABLE Grades;
+CREATE TABLE grades AS SELECT 'Mary Popkins' Name, 'Database Systems' Course, 97 grade FROM dual;
+DESC grades;
+CREATE TABLE phones3 AS SELECT phone-100 phone, fname FROM phones;
+CREATE VIEW phones_view as SELECT phone-100 phone, fname FROM phones;
+DELETE FROM phones WHERE fname LIKE 'T%';
+GRANT SELECT ON phones TO as_pkos;
+GRANT SELECT ON phones TO public;
+REVOKE SELECT ON phones FROM public;
+COMMIT;
+ROLLBACK;
